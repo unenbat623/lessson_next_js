@@ -2,8 +2,9 @@ import Link from "next/link";
 
 export default function Navbar() {
   return (
-    <div className="navbar">
-      <img src="/Logo (1).png" className="h-[80px] w-[250px]" />
+    <div className="flex items-center justify-center gap-72 pt-3 pb-12">
+      <img src="/metablog.png" className="h-[80px] w-[100px]" />
+
       <div className="flex gap-8">
         <a href="/">Home</a>
         <a href="/blog">Blog</a>

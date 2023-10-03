@@ -52,7 +52,7 @@ const BlogDetail = () => {
             <div className="mt-8">
               <div
                 className="blogcontent"
-                dangerouslySetInnerHTML={{ __html: BlogDetailData.body_html }}
+                dangerouslySetInnerHTML={{ __html: BlogDetailData?.body_html }}
               ></div>
             </div>
           </div>

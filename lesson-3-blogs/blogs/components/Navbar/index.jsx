@@ -1,14 +1,15 @@
 import Link from "next/link";
+import Contact from "@/pages/contact";
 
 export default function Navbar() {
   return (
-    <div className="flex items-center justify-center gap-72 pt-3 pb-12">
-      <img src="/metablog.png" className="h-[80px] w-[100px]" />
+    <div className="flex items-center justify-center gap-72 pt-5 pb-5 border-b-2 border-slate-200">
+      <img src="/logo.png" className="h-[36px] w-[158px]" />
 
       <div className="flex gap-8">
         <a href="/">Home</a>
         <a href="/blog">Blog</a>
-        <a href="/contact">Contact</a>
+        <Link href="/contact">Contact</Link>
       </div>
       <input placeholder="Search" type="text"></input>
       <button type="submit"></button>

@@ -13,7 +13,7 @@ export default function Home() {
   }, []);
 
   const fetchData = async () => {
-    const res = await fetch("https://dev.to/api/articles?per_page=9&page=3");
+    const res = await fetch("https://dev.to/api/articles?per_page=9&page=1");
     const data = await res.json();
     const res1 = await fetch("https://dev.to/api/articles/latest?per_page=4");
     const data1 = await res1.json();

@@ -3,12 +3,14 @@ import { formatDate } from "@/utils/function";
 
 const Card = ({ blog }) => {
   return (
-    <Link href={"/blog/" + blog.id}>
-      <div className=" rounded-xl border border-[#E8E8EA] flex flex-col p-4 justify-center w-[392px] gap-3">
-        <img
-          src={blog.cover_image ? blog.cover_image : "/women.avif"}
-          className="h-[240px] w-[360px] rounded-xl"
-        />
+    <Link href={"/blog/" + blog.id + blog.title}>
+      <div className=" max-lg:w-full rounded-xl border border-[#E8E8EA] flex flex-col p-3 justify-center w-[392px] gap-3">
+        <div className="h-[250px] lg:w-[370px]  bg-red-400  rounded-xl">
+          <img
+            src={blog.cover_image ? blog.cover_image : "/women.avif"}
+            className="w-full h-full object-cover"
+          />
+        </div>
         <div className="flex flex-col items-start gap-4 self-stretch">
           <span className="flex py-1 px-[10px] justify-center items-center gap-1 border-6 bg-[#4B6BFB0D] text-[#4B6BFB] rounded-md">
             {blog?.type_of}

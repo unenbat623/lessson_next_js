@@ -25,31 +25,34 @@ const BlogDetail = () => {
   }, []);
 
   return (
-    <div className="container bg-slate-300 mx-auto mt-[100px] max-w-4xl">
+    <div className="container flex w-[800px] flex-col items-center gap-8 mx-auto mt-[100px] max-w-4xl">
       <div>
         {!isLoading && (
           <div>
             <div>
-              <h1 className="text-[36px] font-semibold text-slate-800">
+              <h1 className="text-[36px] font-semibold text-slate-900">
                 {BlogDetailData.title}
               </h1>
               <div className="flex items-center mt-5 gap-5">
                 <div className="flex items-center gap-2">
                   <img
-                    className="w-8 h-8 rounded-full"
+                    className="w-7 h-7 rounded-full"
                     src={BlogDetailData?.user?.profile_image}
                     alt="avatar"
                   />
-                  <h4 className="ml-2 text-lg text-slate-500">
+                  <h4 className="ml-2 text-[14px] text-slate-500">
                     {BlogDetailData?.user?.name}
                   </h4>
-                  <p className=" text-lg text-slate-500">
+                  <p className=" text-[14px] text-slate-500">
                     {formatDate(BlogDetailData?.created_at)}
                   </p>
                 </div>
               </div>
             </div>
             <div className="mt-8">
+              <div>
+                <img className="rounded-md" src={BlogDetailData?.cover_image} />
+              </div>
               <div
                 className="blogcontent"
                 dangerouslySetInnerHTML={{ __html: BlogDetailData?.body_html }}

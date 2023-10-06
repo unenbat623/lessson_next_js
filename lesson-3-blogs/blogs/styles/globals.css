@@ -24,4 +24,9 @@
   @apply flex;
   @apply justify-center;
   @apply items-center;
+  @apply text-2xl;
+}
+.blogcontent h1,
+h3 {
+  @apply text-2xl;
 }

@@ -23,11 +23,18 @@ const Blog = () => {
   return (
     <main className={`container mx-auto `}>
       <section>
-        <h1 className="p-5 text-4xl">Recent blog posts</h1>
-        {isLoading && <Loading />}
-        {blogs.map((blog, i) => {
-          return <Card key={i} blog={blog} />;
-        })}
+        <h1 className="p-5 text-4xl">All blog posts</h1>
+        <div className="grid grid-cols-3 gap-5">
+          {isLoading && <Loading />}
+          {blogs.map((blog, i) => {
+            return <Card key={i} blog={blog} />;
+          })}
+        </div>
+        <div className="flex  justify-center items-center my-3 ">
+          <button className="text-[16px] rounded-md border border-slate-300 py-3 px-5 gap-3">
+            Load more
+          </button>
+        </div>
       </section>
     </main>
   );

@@ -1,6 +1,6 @@
 const FourCard = ({ blog }) => {
   return (
-    <div className="flex items-start self-stretch">
+    <div className="flex grid-cols-1 items-start self-stretch">
       <div key={blog?.id} className="flex 1 0 0">
         <img
           src={blog?.social_image}
@@ -8,7 +8,7 @@ const FourCard = ({ blog }) => {
         />
         <div className="description">
           <span>{blog?.type_of}</span>
-          <h1 className="self-stretch">{blog?.description}</h1>
+          <h1 className="">{blog?.description}</h1>
         </div>
       </div>
     </div>

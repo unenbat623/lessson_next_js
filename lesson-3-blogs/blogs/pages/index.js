@@ -1,58 +1,73 @@
-import { useEffect, useState } from "react";
+import { useState, useEffect } from "react";
 import Card from "@/components/Card";
-import Loading from "@/components/Loader";
+import Loader from "@/components/Loader";
+import { getData } from "@/utils/function";
 import FourCard from "@/components/Card_4";
 
 export default function Home() {
   const [blogs, setBlogs] = useState([]);
   const [blogpost, setBlogpost] = useState([]);
-  const [isLoading, setisLoading] = useState(true);
-  const [pages, setPages] = useState(3);
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState("");
+  const [pages, setPages] = useState(9);
 
-  useEffect(() => {
-    fetchData();
-  }, []);
-
-  const fetchData = async () => {
-    const res = await fetch("https://dev.to/api/articles?per_page=9&page=2");
-    const data = await res.json();
-    const res1 = await fetch("https://dev.to/api/articles/latest?per_page=4");
-    const data1 = await res1.json();
-    console.log(data);
-    setBlogs(data);
-    setisLoading(false);
-    setBlogpost(data1);
+  const getBlogs = async () => {
+    try {
+      const data = await getData(
+        `https://dev.to/api/articles?per_page=${pages}`
+      );
+      const data1 = await getData(
+        "https://dev.to/api/articles/latest?per_page=4"
+      );
+      console.log(data);
+      setBlogs(data);
+      setBlogpost(data1);
+    } catch (err) {
+      setError("Error, please try again");
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   function handleNext() {
-    console.log("daraagiin list");
     setPages(pages + 3);
   }
 
+  useEffect(() => {
+    getBlogs();
+  }, [pages]);
+
   return (
-    <main className={`container mx-auto `}>
+    <main className={`container mx-auto`}>
       <section>
-        <h1 className="p-5 text-4xl">Recent blog posts</h1>
-        {isLoading && <Loading />}
-        <div className="container flex w-[1280px] px-8 flex-col items-start gap-8">
-          {blogpost.map((blog) => {
-            return <FourCard blog={blog} />;
-          })}
-        </div>
-        <h1 className="p-5 text-4xl">All blog post</h1>
-        <div className="lg:grid lg:grid-cols-2 xl:grid-cols-3   gap-5">
-          {blogs.map((blog, i) => {
-            return <Card key={i} blog={blog} />;
-          })}
-        </div>
-        <div className="flex  justify-center items-center my-3 ">
-          <button
-            onClick={handleNext}
-            className="text-[16px] rounded-md border border-slate-300 py-3 px-5 gap-3 hover:bg-green-400"
-          >
-            Load more
-          </button>
-        </div>
+        {isLoading && <Loader />}
+        {error && (
+          <h1 className="text-red-500 text-3xl text-center my-10">{error}</h1>
+        )}
+        {!isLoading && !error && (
+          <>
+            <h1 className="p-5 text-4xl">Recent Blogs</h1>
+            <div className="container flex w-[1280px] px-8 flex-col items-start gap-8">
+              {blogpost.map((blog) => {
+                return <FourCard blog={blog} />;
+              })}
+            </div>
+            <h2 className="p-5 text-4xl">All blog post</h2>
+            <div className="lg:grid lg:grid-cols-2 xl:grid-cols-3   gap-5">
+              {blogs.map((blog, i) => (
+                <Card blog={blog} />
+              ))}
+            </div>
+            <div className="flex  justify-center items-center my-3 ">
+              <button
+                onClick={handleNext}
+                className="text-[16px] rounded-md border border-slate-300 py-3 px-5 gap-3 hover:bg-green-400"
+              >
+                Load More ...
+              </button>
+            </div>
+          </>
+        )}
       </section>
     </main>
   );

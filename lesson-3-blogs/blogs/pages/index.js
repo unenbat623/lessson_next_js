@@ -6,7 +6,6 @@ import FourCard from "@/components/Card_4";
 
 export default function Home() {
   const [blogs, setBlogs] = useState([]);
-  const [blogpost, setBlogpost] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState("");
   const [pages, setPages] = useState(9);
@@ -16,12 +15,8 @@ export default function Home() {
       const data = await getData(
         `https://dev.to/api/articles?per_page=${pages}`
       );
-      const data1 = await getData(
-        "https://dev.to/api/articles/latest?per_page=4"
-      );
       console.log(data);
       setBlogs(data);
-      setBlogpost(data1);
     } catch (err) {
       setError("Error, please try again");
     } finally {
@@ -47,10 +42,8 @@ export default function Home() {
         {!isLoading && !error && (
           <>
             <h1 className="p-5 text-4xl">Recent Blogs</h1>
-            <div className="container flex w-[1280px] px-8 flex-col items-start gap-8">
-              {blogpost.map((blog) => {
-                return <FourCard blog={blog} />;
-              })}
+            <div>
+              <FourCard />
             </div>
             <h2 className="p-5 text-4xl">All blog post</h2>
             <div className="lg:grid lg:grid-cols-2 xl:grid-cols-3   gap-5">

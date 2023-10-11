@@ -4,8 +4,8 @@ import { formatDate } from "@/utils/function";
 const Card = ({ blog }) => {
   return (
     <Link href={"/blog/" + blog.id + blog.title}>
-      <div className=" max-lg:w-full rounded-xl border border-[#E8E8EA] flex flex-col p-3 justify-center w-[392px] gap-3">
-        <div className="h-[250px] lg:w-[370px]  bg-green-400  rounded-xl">
+      <div className="rounded-xl border border-[#E8E8EA] flex flex-col p-3 md:justify-center w-[392px] gap-3">
+        <div className="h-[250px] lg:w-[370px]  bg-green-400  rounded-xl max-w-md">
           <img
             src={blog.cover_image ? blog.cover_image : "/women.avif"}
             className="w-full h-full object-cover"

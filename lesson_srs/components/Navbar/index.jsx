@@ -22,10 +22,10 @@ const Navbar = () => {
   console.log("blog", isActive);
 
   return (
-    <div className="h-24 mx-auto border-b">
-      <div className="flex justify-between p-5 items-center">
+    <div className="container md:mx-auto md:border-b">
+      <div className="flex md:justify-between md:p-5 md:items-center">
         <a href="/">
-          <img src="Logo.png" alt="logo" />
+          <img src="Logo.png" alt="logo" className="container" />
         </a>
         <div className="flex gap-12">
           {navigations.map((navigation, i) => (
@@ -42,7 +42,7 @@ const Navbar = () => {
             </Link>
           ))}
         </div>
-        <div className="flex  py-2 pr-4 pl-2 items-center gap-3 ">
+        <div className="flex  md:py-2 md:pr-4 md:pl-2 md:items-center gap-3 ">
           <input
             placeholder="Search"
             type="text"

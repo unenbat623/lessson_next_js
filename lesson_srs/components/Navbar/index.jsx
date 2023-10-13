@@ -22,18 +22,18 @@ const Navbar = () => {
   console.log("blog", isActive);
 
   return (
-    <div className="container md:mx-auto md:border-b">
-      <div className="flex md:justify-between md:p-5 md:items-center">
+    <div className="container md:mx-auto mt-3 py-1 lg:border-b max-lg:hidden">
+      <div className="flex md:justify-between md:items-center">
         <a href="/">
           <img src="Logo.png" alt="logo" className="container" />
         </a>
         <div className="flex gap-12">
           {navigations.map((navigation, i) => (
             <Link
-              className={`font-bold transition-all duration-75  ${
+              className={`topnav ${
                 isActive === navigation.path
                   ? "text-green-500"
-                  : "hover:text-red-500 "
+                  : "hover:text-red-400 "
               }`}
               key={i}
               href={navigation.path}
@@ -42,11 +42,11 @@ const Navbar = () => {
             </Link>
           ))}
         </div>
-        <div className="flex  md:py-2 md:pr-4 md:pl-2 md:items-center gap-3 ">
+        <div className="flex md:items-center ">
           <input
             placeholder="Search"
             type="text"
-            className="z-4 flex-col"
+            className="z-4 h-[20px] w-[150px]"
           ></input>
           <button type="submit">
             <img src="search-outline.svg" className="w-4 h-4 z-2" />

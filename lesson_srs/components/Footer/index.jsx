@@ -1,9 +1,9 @@
 export default function Footer() {
   return (
-    <div className="container  h-24  mx-auto">
-      <div className="flex flex-col items-start pt-16 text-1xl">
-        <div className="flex gap-6 justify-center">
-          <div className="flex flex-col p-5 items-start gap-3 ">
+    <div className="container h-24  mx-auto">
+      <div className=" items-start pt-16">
+        <div className="flex  gap-6 justify-between">
+          <div className="flex-col items-start gap-3 ">
             <div className=" text-xl">About</div>
             Lorem ipsum dolor sit amet,
             <br /> consectetur adipiscing elit, sed do
@@ -11,15 +11,15 @@ export default function Footer() {
             eiusmod tempor incididunt ut labore <br />
             et dolore magna aliqua. Ut enim ad
             <br /> minim veniam
-            <span>Email : info@jstemplate.net</span>
-            <span>Phone : 880 123 456 789</span>
+            <div className=" py-1">Email : info@jstemplate.net</div>
+            <div className="pb-1">Phone : 880 123 456 789</div>
           </div>
           <div className="flex flex-col p-5 gap-2">
             <a href="/">Home</a>
             <a href="/blog">Blog</a>
             <a href="/contact">Contact</a>
           </div>
-          <div className="flex p-5 gap-6">
+          <div className="flex flex-col mt-5 gap-6">
             <a href="https://www.facebook.com/profile.php?id=100089448708671">
               <img src="Facebook.svg" className="w-[20px] h-[20px]" />
             </a>
@@ -36,11 +36,11 @@ export default function Footer() {
         </div>
         <div className="flex border-t-2 p-3">
           <img src="/metablog.png" className="h-[60px] w-[60px]" />
-          <div className="flex flex-col p-2">
+          <div className="py-2 px-2 p-2">
             <div>MetaBlog</div>
             <div>© All Rights Reserved.</div>
           </div>
-          <div className="flex px-52">
+          <div className="sm:flex-col">
             <a className="p-5" href="/Terms">
               Terms of Use
             </a>

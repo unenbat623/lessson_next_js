@@ -1,16 +1,18 @@
 import { useState, useEffect } from "react";
 import Card from "@/components/Card";
-import Loader from "@/components/Loader";
 import { getData } from "@/utils/function";
+import FourCard from "@/components/Card4/FourCard";
+import Link from "next/link";
 
 export default function Home({ blogs }) {
   return (
     <main className={`container mx-auto`}>
       <section>
         <h1 className="p-5 text-4xl">Recent Blogs</h1>
+        {/* <FourCard /> */}
         <div className="container flex w-[1280px] px-8 flex-col items-start gap-8"></div>
         <h2 className="p-5 text-4xl">All blog post</h2>
-        <div className="lg:grid lg:grid-cols-2 xl:grid-cols-3   gap-5">
+        <div className="md:grid lg:grid-cols-2 xl:grid-cols-3   gap-5">
           {blogs.map((blog, i) => (
             <Card blog={blog} />
           ))}
@@ -24,8 +26,8 @@ export default function Home({ blogs }) {
     </main>
   );
 }
-export async function getStaticProps() {
-  const res = await fetch(`https://dev.to/api/articles/latest?per_page=9`);
+export async function getServerSideProps() {
+  const res = await fetch(`https://dev.to/api/articles?per_page=9`);
   const blogs = await res.json();
   console.log("Static Props Work");
   return {

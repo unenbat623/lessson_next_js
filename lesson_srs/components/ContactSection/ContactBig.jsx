@@ -21,10 +21,12 @@ export const ContactBig = () => {
         <div className="flex  mt-5 gap-12 ">
           <div className="rounded-[10px] border border-slate-500 p-4 w-[50%]">
             <h1 className=" text-2xl gap-1">Address</h1>
-            <p className="mt-1 text-[#696A75]">
-              1328 Oak Ridge Drive, Saint <br />
-              Louis, Missouri
-            </p>
+            <a href="https://www.realtor.com/realestateandhomes-detail/1328-Palm-Ridge-Ct_Saint-Louis_MO_63146_M86173-94247">
+              <p className="mt-1 text-[#696A75]">
+                1328 Oak Ridge Drive, Saint <br />
+                Louis, Missouri
+              </p>
+            </a>
           </div>
           <div className="rounded-md border border-slate-500 p-4 w-[50%]">
             <h1 className=" text-2xl gap-1">Contact</h1>

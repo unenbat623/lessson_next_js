@@ -3,7 +3,7 @@ import { formatDate } from "@/utils/function";
 
 const Card = ({ blog }) => {
   return (
-    <Link href={"/blog/" + blog.id + blog.title}>
+    <Link href={"/blog/" + blog.id}>
       <div className="rounded-xl border border-[#E8E8EA] flex flex-col p-3 md:justify-center w-[392px] gap-3">
         <div className="h-[250px] lg:w-[370px]  bg-green-400  rounded-xl max-w-md">
           <img

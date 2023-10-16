@@ -1,13 +1,13 @@
 import React, { children } from "react";
 import Navbar from "../Navbar";
 import Footer from "../Footer";
-import Kebab from "../Kebab";
+// import MobileNavbar from "../MobileNavbar";
 
 const Layout = ({ children }) => {
   return (
     <>
       <Navbar />
-      <Kebab />
+      {/* <MobileNavbar /> */}
       {children}
       <Footer />
     </>

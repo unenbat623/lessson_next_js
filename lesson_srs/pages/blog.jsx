@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import Card from "@/components/Card";
-import Loader from "@/components/Loader";
 import { getData } from "@/utils/function";
 
 export default function Blog() {
@@ -35,7 +34,6 @@ export default function Blog() {
   return (
     <main className={`container mx-auto`}>
       <section>
-        {isLoading && <Loader />}
         {error && (
           <h1 className="text-red-700 text-3xl text-center my-10">{error}</h1>
         )}

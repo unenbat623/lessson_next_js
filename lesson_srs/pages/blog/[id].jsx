@@ -45,13 +45,15 @@ const BlogDetail = ({ article }) => {
 export default BlogDetail;
 
 export async function getStaticProps(context) {
-  // console.log("context", first);
   const { id } = context.params;
   const res = await fetch(`https://dev.to/api/articles/${id}`);
   const article = await res.json();
 
   return {
-    props: { article },
+    props: {
+      article,
+    },
+    revalidate: 10,
   };
 }
 
@@ -66,8 +68,5 @@ export async function getStaticPaths() {
   const ids = articles.map((article) => article.id);
   console.log("ids", ids);
   const paths = ids.map((id) => ({ params: { id: id.toString() } }));
-  return {
-    paths,
-    fallback: false,
-  };
+  return { paths, fallback: "blocking" };
 }

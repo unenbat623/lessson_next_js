@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { formatDate } from "@/utils/function";
+import { ProfileMenu } from "../ProfileChange";
 
 const Card = ({ blog }) => {
   return (
@@ -21,7 +22,9 @@ const Card = ({ blog }) => {
           <img
             src={blog.user.profile_image}
             className="w-[50px] h-[50px] rounded-full "
-          />
+          >
+            {/* <ProfileMenu /> */}
+          </img>
           <p className="text-[#97989F]">{blog.user.name}</p>
           <p className="text-[#97989F]">{formatDate(blog.created_at)}</p>
         </div>

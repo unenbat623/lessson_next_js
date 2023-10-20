@@ -1,13 +1,11 @@
 import React, { children } from "react";
 import Navbar from "../Navbar";
 import Footer from "../Footer";
-// import MobileNavbar from "../MobileNavbar";
 
-const Layout = ({ children }) => {
+const Layout = ({ children, setSearchTitle }) => {
   return (
     <>
-      <Navbar />
-      {/* <MobileNavbar /> */}
+      <Navbar setSearchTitle={setSearchTitle} />
       {children}
       <Footer />
     </>

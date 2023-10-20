@@ -41,7 +41,7 @@ export default function Footer() {
             <div>© All Rights Reserved.</div>
           </div>
           <div className="sm:flex-col">
-            <a className="p-5" href="/Terms">
+            <a className="p-5" href="/terms">
               Terms of Use
             </a>
             <a className="p-5" href="/Privacy">

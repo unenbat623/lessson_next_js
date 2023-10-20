@@ -1,7 +1,6 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import React, { useState, useEffect } from "react";
-import Blog from "@/pages/blog";
 
 const navigations = [
   {
@@ -18,28 +17,8 @@ const navigations = [
   },
 ];
 
-const Navbar = () => {
+const Navbar = ({ setSearchTitle }) => {
   const isActive = usePathname();
-
-  const [blogList, setBlogList] = useState([]);
-
-  const handleChange = (event) => {
-    const searchName = event.target.value;
-
-    const getBlogs = async () => {
-      try {
-        const response = await fetch(`https://dev.to/api/articles?per_page=9`);
-        const blogs = await response.json();
-        const filteredblogs = blogs?.filter((blog) => {
-          return blog.title.includes(searchName);
-        });
-        setBlogList(filteredblogs);
-      } catch (err) {
-        console.log(err);
-        alert("Error, please try again");
-      }
-    };
-  };
 
   return (
     <div className="container md:mx-auto mt-3 py-1 lg:border-b max-lg:hidden">
@@ -68,7 +47,9 @@ const Navbar = () => {
             placeholder="Search"
             type="text"
             className="z-4 h-[20px] w-[150px]"
-            onChange={handleChange}
+            onChange={(e) => {
+              setSearchTitle(e.target.value);
+            }}
           ></input>
           <button type="submit">
             <img src="search-outline.svg" className="w-4 h-4 z-2" />

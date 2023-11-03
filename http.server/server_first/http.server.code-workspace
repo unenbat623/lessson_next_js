@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"name": "http.server",
+			"path": ".."
+		},
+		{
+			"name": "lesson_node_js",
+			"path": "../../lesson_node_js"
+		}
+	],
+	"settings": {}
+}
